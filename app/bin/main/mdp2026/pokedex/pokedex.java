@@ -1,4 +1,3 @@
-package utility;
 /*
 Il programma deve restare in esecuzione fino a quando l’utente non inserisce un comando esplicito di uscita. Il programma deve prevedere due soli stati di navigazione:
 menu generale
@@ -34,10 +33,12 @@ Gestire la ricerca per nome ai soli Pokémon già scoperti e segnalare quando no
 Gestire visualizzazione pokémon scoperti
 Gestire le eccezioni ricominciando dalla sezione scelta(se entri nella lista dei pokémon con un id sbagliato ti fà rimettere l’ID anziché lanciare un’eccezione che termini il programma)
 */
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+@SuppressWarnings("GrazieInspection")
 public class pokedex {
 private List<pokemon> allPokemon;
 private boolean[] scoperti;
@@ -86,7 +87,7 @@ return trovato;
 
     /**this method return the pokemon thath we would to find by name
      *
-     * @param name name of the pokemon
+     * @param name name of the Pokémon
      * @return pokemon
      */
     public pokemon GetPokemonByName(String name){
@@ -98,11 +99,12 @@ return trovato;
 //           return  p;
 //         } }
             for(pokemon p : getScoperti()){
-             if(p.getNome().equals(name))return p; // versione pulitissima
+             if(p.getNome().equals(name)) return p; // versione pulitissima
          }
       System.out.println("pokemon non esistente");
      return null;
     }
+
 
 }
 

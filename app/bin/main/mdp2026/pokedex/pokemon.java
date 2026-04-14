@@ -1,5 +1,3 @@
-package utility;
-
 public class pokemon {
     int identificativo;
     String nome ;
@@ -10,6 +8,18 @@ public class pokemon {
 
     public void setIdentificativo(int identificativo) {
         this.identificativo = identificativo;
+    }
+
+    @Override
+    public String toString() {
+        return "pokemon{" +
+                "identificativo=" + identificativo +
+                ", nome='" + nome + '\'' +
+                ", tipo1='" + tipo1 + '\'' +
+                ", tipo2='" + tipo2 + '\'' +
+                ", altezza=" + altezza +
+                ", peso=" + peso +
+                '}';
     }
 
     public void setNome(String nome) {
