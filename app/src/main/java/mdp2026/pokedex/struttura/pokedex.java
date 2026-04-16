@@ -33,24 +33,25 @@ Gestire la ricerca per nome ai soli Pokémon già scoperti e segnalare quando no
 Gestire visualizzazione pokémon scoperti
 Gestire le eccezioni ricominciando dalla sezione scelta(se entri nella lista dei pokémon con un id sbagliato ti fà rimettere l’ID anziché lanciare un’eccezione che termini il programma)
 */
-
+package mdp2026.pokedex.struttura;
+import mdp2026.pokedex.utility.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 @SuppressWarnings("GrazieInspection")
 public class pokedex {
-private List<pokemon> allPokemon;
-private boolean[] scoperti;
+    private List<pokemon> allPokemon;
+    private boolean[] scoperti;
 
 
 
 
-public pokedex(List<pokemon> pks){
-    if(pks==null) throw new IllegalArgumentException("la lista non puo essere nulla");
-this.allPokemon= new ArrayList<pokemon>();
-this.scoperti=new boolean[155];
-}
+    public pokedex(List<pokemon> pks){
+        if(pks==null) throw new IllegalArgumentException("la lista non puo essere nulla");
+        this.allPokemon= new ArrayList<pokemon>();
+        this.scoperti=new boolean[155];
+    }
 
     /**
      * This method find every discovered Pokémon.
@@ -58,14 +59,14 @@ this.scoperti=new boolean[155];
      * @return list of discovered Pokémon
      */
     public List<pokemon> getScoperti(){
-    List<pokemon>  listaPokemonScoperti= new ArrayList<pokemon>();
-    for ( int i =0 ; i<scoperti.length;i++){
-        if(scoperti[i]){
-            listaPokemonScoperti.add(getPokemon(i));
+        List<pokemon>  listaPokemonScoperti= new ArrayList<pokemon>();
+        for ( int i =0 ; i<scoperti.length;i++){
+            if(scoperti[i]){
+                listaPokemonScoperti.add(getPokemon(i));
+            }
         }
+        return listaPokemonScoperti;
     }
-    return listaPokemonScoperti;
-}
 
     /** usless for return pokemons by index
      *
@@ -74,16 +75,16 @@ this.scoperti=new boolean[155];
      */
     public pokemon getPokemon(int index){
         if(index<0 || index>155) throw new IllegalArgumentException("index must to be between 1 and 155");
-int n=0;
-pokemon trovato = new pokemon();
-Iterator<pokemon> itr= allPokemon.iterator();// qui se il pokemon da trovare è il 15 il mio programma si ferma al pokemon 14,
-while(n<index) {                              // perchè ovviamente cominciando da 1 tutto cambia.
-    trovato = itr.next();
-    n++;
-}
-scoperti[index]=true; // questo perchè in futuro mi servirà per quando un utente vuole scoprire un pokemon.
-return trovato;
-}
+        int n=0;
+        pokemon trovato = new pokemon();
+        Iterator<pokemon> itr= allPokemon.iterator();// qui se il pokemon da trovare è il 15 il mio programma si ferma al pokemon 14,
+        while(n<index) {                              // perchè ovviamente cominciando da 1 tutto cambia.
+            trovato = itr.next();
+            n++;
+        }
+        scoperti[index]=true; // questo perchè in futuro mi servirà per quando un utente vuole scoprire un pokemon.
+        return trovato;
+    }
 
     /**this method return the pokemon thath we would to find by name
      *
@@ -98,14 +99,12 @@ return trovato;
 //         if (p.getNome().equals(name)){ // versione meno efficente
 //           return  p;
 //         } }
-            for(pokemon p : getScoperti()){
-             if(p.getNome().equals(name)) return p; // versione pulitissima
-         }
-      System.out.println("pokemon non esistente");
-     return null;
+        for(pokemon p : getScoperti()){
+            if(p.getNome().equals(name)) return p; // versione pulitissima
+        }
+        System.out.println("pokemon non esistente");
+        return null;
     }
 
 
 }
-
-
