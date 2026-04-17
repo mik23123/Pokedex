@@ -49,7 +49,7 @@ public class pokedex {
 
     public pokedex(List<pokemon> pks){
         if(pks==null) throw new IllegalArgumentException("la lista non puo essere nulla");
-        this.allPokemon= new ArrayList<pokemon>();
+        this.allPokemon= pks;
         this.scoperti=new boolean[155];
     }
 
@@ -74,7 +74,7 @@ public class pokedex {
      * @return Pokemon
      */
     public pokemon getPokemon(int index){
-        if(index<0 || index>155) throw new IllegalArgumentException("index must to be between 1 and 155");
+        if(index<1 || index>155) throw new IllegalArgumentException("index must to be between 1 and 155");
         int n=0;
         pokemon trovato = new pokemon();
         Iterator<pokemon> itr= allPokemon.iterator();// qui se il pokemon da trovare è il 15 il mio programma si ferma al pokemon 14,

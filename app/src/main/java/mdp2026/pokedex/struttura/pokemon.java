@@ -1,22 +1,27 @@
 package mdp2026.pokedex.struttura;
 import mdp2026.pokedex.utility.*;
 
+/**
+ * class pokemon with  getter and setter
+ */
 public class pokemon {
-    int identificativo;
+    int numero;
     String nome ;
     String tipo1;
     String tipo2;
     float altezza;
     float peso;
 
-    public void setIdentificativo(int identificativo) {
-        this.identificativo = identificativo;
+
+
+    public void setNumero(int identificativo) {
+        this.numero = identificativo;
     }
 
     @Override
     public String toString() {
         return "pokemon{" +
-                "identificativo=" + identificativo +
+                "numero=" + numero +
                 ", nome='" + nome + '\'' +
                 ", tipo1='" + tipo1 + '\'' +
                 ", tipo2='" + tipo2 + '\'' +
@@ -46,7 +51,7 @@ public class pokemon {
     }
 
     public int getIdentificativo() {
-        return identificativo;
+        return numero;
     }
 
     public float getPeso() {
